@@ -1,7 +1,7 @@
 #!/bin/sh
-echo -e "AT*PROD=2\r\n" > /dev/ttyACM1
-sleep 2
-echo -e "AT*MRD_IMEI=D\r\n" > /dev/ttyACM1
-sleep 2
-echo -e "AT*PROD=0\r\n" > /dev/ttyACM1
+ubus call version set_atcmd_info '{"atcmd":"AT*PROD=2"}' 
+sleep 1
+ubus call version set_atcmd_info '{"atcmd":"AT*MRD_MEP=D"}'
+sleep 1
+ubus call version set_atcmd_info '{"atcmd":"AT*PROD=0"}'
 sleep 2
